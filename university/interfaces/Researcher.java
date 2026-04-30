@@ -1,10 +1,9 @@
 package university.interfaces;
 
-import java.util.Comparator;
-import java.util.List;
-
 import university.research.ResearchPaper;
 import university.research.ResearchProject;
+import java.util.Comparator;
+import java.util.List;
 
 public interface Researcher {
     List<ResearchPaper> getResearchPapers();
