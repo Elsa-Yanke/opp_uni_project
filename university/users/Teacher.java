@@ -37,10 +37,6 @@ public class Teacher extends Employee {
         offerings.add(offering);
     }
 
-    public void putMark(Student student, CourseOffering offering, Mark mark) {
-        offering.addMark(student, mark);
-    }
-
     public void sendComplaint(Student student, ComplaintUrgency urgency) {
         Complaint complaint = new Complaint(this, student, urgency);
         complaints.add(complaint);
@@ -55,17 +51,13 @@ public class Teacher extends Employee {
         return allStudents;
     }
 
+    public void putMark(Student student, CourseOffering offering, double att1, double att2, double finalScore) {
+        Mark mark = new Mark(student, offering, att1, att2, finalScore);
+        offering.getGradeBook().addMark(student, mark);
+    }
+
     public String generateMarkReport(CourseOffering offering) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Mark Report for: ").append(offering.getCourse().getName()).append("\n");
-        for (Student student : offering.getEnrolledStudents()) {
-            Mark mark = offering.getMark(student);
-            if (mark != null) {
-                sb.append(student.getFullName()).append(": ")
-                  .append(mark.total()).append(" (").append(mark.getLetterGrade()).append(")\n");
-            }
-        }
-        return sb.toString();
+        return offering.getGradeBook().generateReport();
     }
 
     public void updateRating(double newRating, int totalRatings) {

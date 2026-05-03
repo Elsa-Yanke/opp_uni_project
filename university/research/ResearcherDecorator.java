@@ -3,6 +3,7 @@ package university.research;
 import university.interfaces.Researcher;
 import university.users.User;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -46,9 +47,11 @@ public abstract class ResearcherDecorator implements Researcher {
 
     @Override
     public void printPapers(Comparator<ResearchPaper> comparator) {
-        papers.stream()
-              .sorted(comparator)
-              .forEach(System.out::println);
+        List<ResearchPaper> sorted = new ArrayList<>(papers);
+        Collections.sort(sorted, comparator);
+        for (ResearchPaper paper : sorted) {
+            System.out.println(paper);
+        }
     }
 
     @Override

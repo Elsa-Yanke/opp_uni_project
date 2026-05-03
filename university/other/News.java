@@ -43,7 +43,6 @@ public class News implements Comparable<News> {
 
     @Override
     public int compareTo(News other) {
-        // Pinned news first, then by date descending
         if (this.isPinned && !other.isPinned) return -1;
         if (!this.isPinned && other.isPinned) return 1;
         return other.date.compareTo(this.date);

@@ -33,7 +33,7 @@ public class GraduateStudent extends Student implements Researcher {
 
     public void setSupervisor(Researcher researcher) {
         if (researcher.calculateHIndex() < 3) {
-            throw new LowHIndexException(researcher.calculateHIndex());
+             throw new LowHIndexException(researcher.calculateHIndex());
         }
         this.supervisor = researcher;
     }

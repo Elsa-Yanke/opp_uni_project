@@ -9,7 +9,6 @@ import university.users.User;
 import java.io.*;
 import java.util.*;
 
-// Singleton pattern
 public class Database implements Serializable {
 
     private static Database instance;
@@ -22,7 +21,6 @@ public class Database implements Serializable {
     private List<TechRequest> techRequests;
     private List<String> logs;
 
-    // Private constructor — Singleton
     private Database() {
         this.users = new HashMap<>();
         this.courses = new HashMap<>();
@@ -33,7 +31,6 @@ public class Database implements Serializable {
         this.logs = new ArrayList<>();
     }
 
-    // Static getInstance — Singleton access point
     public static Database getInstance() {
         if (instance == null) {
             instance = new Database();
@@ -74,13 +71,10 @@ public class Database implements Serializable {
 
     public void saveNews(News n) { news.add(n); }
     public List<News> getAllNews() { return news; }
-
     public void saveTechRequest(TechRequest req) { techRequests.add(req); }
     public List<TechRequest> getAllTechRequests() { return techRequests; }
-
     public void addJournal(ResearchJournal journal) { journals.add(journal); }
     public List<ResearchJournal> getAllJournals() { return journals; }
-
     public void addSemester(Semester semester) { semesters.add(semester); }
 
     public void log(String action) {
@@ -91,32 +85,9 @@ public class Database implements Serializable {
 
     public List<String> getLogs() { return logs; }
 
-    // Serialization — save to file
     public void save() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(
-                new FileOutputStream("database.ser"))) {
-            oos.writeObject(this);
-            System.out.println("Database saved.");
-        } catch (IOException e) {
-            System.err.println("Error saving database: " + e.getMessage());
-        }
     }
 
-    // Deserialization — load from file
     public void load() {
-        try (ObjectInputStream ois = new ObjectInputStream(
-                new FileInputStream("database.ser"))) {
-            Database loaded = (Database) ois.readObject();
-            this.users = loaded.users;
-            this.courses = loaded.courses;
-            this.semesters = loaded.semesters;
-            this.news = loaded.news;
-            this.journals = loaded.journals;
-            this.techRequests = loaded.techRequests;
-            this.logs = loaded.logs;
-            System.out.println("Database loaded.");
-        } catch (IOException | ClassNotFoundException e) {
-            System.err.println("Error loading database: " + e.getMessage());
-        }
     }
 }

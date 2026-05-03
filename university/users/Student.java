@@ -32,8 +32,7 @@ public class Student extends User implements Comparable<Student> {
         this.degree = StudentDegree.BACHELOR;
     }
 
-    public Student(String id, String login, String password,
-                   String name, String surname, String email, String studentId) {
+    public Student(String id, String login, String password, String name, String surname, String email, String studentId) {
         super(id, login, password, name, surname, email);
         this.studentId = studentId;
         this.gpa = 0.0;
@@ -46,12 +45,10 @@ public class Student extends User implements Comparable<Student> {
     }
 
     public void registerForCourse(CourseOffering offering) {
-        // Check credit limit
         if (this.credits + offering.getCourse().getCredits() > 21) {
             throw new MaxCreditsExceededException(this.credits,
                     offering.getCourse().getCredits());
         }
-        // Check fail count
         if (this.failCount >= 3) {
             throw new MaxFailsExceededException(getFullName(),
                     offering.getCourse().getName());
@@ -67,20 +64,26 @@ public class Student extends User implements Comparable<Student> {
         } else {
             credits += offering.getCourse().getCredits();
         }
-        updateGpa();
+        recalculateGpa();
     }
 
-    private void updateGpa() {
-        if (marks.isEmpty()) return;
-        double total = 0;
-        for (Mark m : marks.values()) {
-            total += m.total();
+    public void receiveMark(CourseOffering offering, Mark mark) {
+        marks.put(offering, mark);
+        if (!mark.isPassed()) {
+            failCount++;
+        } else {
+            credits += offering.getCourse().getCredits();
         }
-        this.gpa = total / marks.size();
+        recalculateGpa();
     }
 
-    public List<Mark> viewMarks() {
-        return new ArrayList<>(marks.values());
+    private void recalculateGpa() {
+        if (marks.isEmpty()) return;
+        double sum = 0;
+        for (Mark m : marks.values()) {
+            sum += m.total();
+        }
+        this.gpa = sum / marks.size();
     }
 
     public String getTranscript() {
@@ -114,7 +117,6 @@ public class Student extends User implements Comparable<Student> {
         return Double.compare(other.gpa, this.gpa); // descending by GPA
     }
 
-    // Getters and Setters
     public String getStudentId() { return studentId; }
     public double getGpa() { return gpa; }
     public int getCredits() { return credits; }

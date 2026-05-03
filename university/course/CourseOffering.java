@@ -2,12 +2,11 @@ package university.course;
 
 import university.users.Student;
 import university.users.Teacher;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class CourseOffering {
+public class CourseOffering implements Serializable {
 
     private String offeringId;
     private Course course;
@@ -16,7 +15,7 @@ public class CourseOffering {
     private Teacher practiceTeacher;
     private List<Student> enrolledStudents;
     private List<Lesson> lessons;
-    private Map<Student, Mark> markBook;
+    private GradeBook gradeBook;
     private int maxStudents;
     private String major;
     private int yearOfStudy;
@@ -24,7 +23,6 @@ public class CourseOffering {
     public CourseOffering() {
         this.enrolledStudents = new ArrayList<>();
         this.lessons = new ArrayList<>();
-        this.markBook = new HashMap<>();
     }
 
     public CourseOffering(String offeringId, Course course, Semester semester, int maxStudents, String major, int yearOfStudy) {
@@ -36,14 +34,13 @@ public class CourseOffering {
         this.yearOfStudy = yearOfStudy;
         this.enrolledStudents = new ArrayList<>();
         this.lessons = new ArrayList<>();
-        this.markBook = new HashMap<>();
+        this.gradeBook = new GradeBook(this);
     }
 
     public void addStudent(Student student) {
-        if (!isFull()) {
+        if (!isFull() && !enrolledStudents.contains(student)) {
             enrolledStudents.add(student);
-        } 
-        else {
+        } else {
             System.out.println("Course offering is full.");
         }
     }
@@ -51,8 +48,6 @@ public class CourseOffering {
     public void removeStudent(Student student) {
         enrolledStudents.remove(student);
     }
-
-    public List<Student> getEnrolledStudents() { return enrolledStudents; }
 
     public boolean isFull() {
         return enrolledStudents.size() >= maxStudents;
@@ -67,24 +62,43 @@ public class CourseOffering {
         return teachers;
     }
 
-    public void addMark(Student student, Mark mark) {
-        markBook.put(student, mark);
+    public String getOfferingId() { 
+        return offeringId; 
     }
-
-    public Mark getMark(Student student) {
-        return markBook.get(student);
+    public Course getCourse() { 
+        return course; 
     }
-
-    public String getOfferingId() { return offeringId; }
-    public Course getCourse() { return course; }
-    public Semester getSemester() { return semester; }
-    public Teacher getLectureTeacher() { return lectureTeacher; }
-    public void setLectureTeacher(Teacher teacher) { this.lectureTeacher = teacher; }
-    public Teacher getPracticeTeacher() { return practiceTeacher; }
-    public void setPracticeTeacher(Teacher teacher) { this.practiceTeacher = teacher; }
-    public List<Lesson> getLessons() { return lessons; }
-    public int getMaxStudents() { return maxStudents; }
-    public String getMajor() { return major; }
-    public int getYearOfStudy() { return yearOfStudy; }
-    public Map<Student, Mark> getMarkBook() { return markBook; }
+    public Semester getSemester() { 
+        return semester; 
+    }
+    public Teacher getLectureTeacher() { 
+        return lectureTeacher; 
+    }
+    public void setLectureTeacher(Teacher teacher) { 
+        this.lectureTeacher = teacher; 
+    }
+    public Teacher getPracticeTeacher() { 
+        return practiceTeacher; 
+    }
+    public void setPracticeTeacher(Teacher teacher) { 
+        this.practiceTeacher = teacher; 
+    }
+    public List<Student> getEnrolledStudents() { 
+        return enrolledStudents; 
+    }
+    public List<Lesson> getLessons() { 
+        return lessons; 
+    }
+    public GradeBook getGradeBook() { 
+        return gradeBook; 
+    }
+    public int getMaxStudents() { 
+        return maxStudents; 
+    }
+    public String getMajor() { 
+        return major; 
+    }
+    public int getYearOfStudy() { 
+        return yearOfStudy; 
+    }
 }

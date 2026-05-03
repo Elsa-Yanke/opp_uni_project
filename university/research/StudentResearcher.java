@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentResearcher extends ResearcherDecorator {
-
     private Student wrappee;
     private List<ResearchPaper> diplomaProjects;
 

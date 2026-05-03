@@ -31,8 +31,7 @@ public class Registration {
 
     public void reject() {
         this.status = RegistrationStatus.REJECTED;
-        System.out.println("Registration rejected for " + student.getFullName()
-                + " in " + offering.getCourse().getName());
+        System.out.println("Registration rejected for " + student.getFullName() + " in " + offering.getCourse().getName());
     }
 
     public String getRegistrationId() { return registrationId; }
