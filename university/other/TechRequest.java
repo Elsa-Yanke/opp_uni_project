@@ -30,7 +30,6 @@ public class TechRequest {
         System.out.println("Request '" + description + "' status updated to: " + status);
     }
 
-    // Getters
     public String getId() { return id; }
     public String getDescription() { return description; }
     public RequestStatus getStatus() { return status; }

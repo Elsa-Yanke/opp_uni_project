@@ -23,14 +23,22 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{id='" + courseId + "', name='" + name
-                + "', credits=" + credits + ", type=" + courseType + "}";
+        return "Course{id='" + courseId + "', name='" + name + "', credits=" + credits + ", type=" + courseType + "}";
     }
 
-    // Getters and Setters
-    public String getCourseId() { return courseId; }
-    public String getName() { return name; }
-    public int getCredits() { return credits; }
-    public CourseType getCourseType() { return courseType; }
-    public String getDescription() { return description; }
+    public String getCourseId() { 
+        return courseId; 
+    }
+    public String getName() { 
+        return name; 
+    }
+    public int getCredits() { 
+        return credits; 
+    }
+    public CourseType getCourseType() { 
+        return courseType; 
+    }
+    public String getDescription() { 
+        return description; 
+    }
 }

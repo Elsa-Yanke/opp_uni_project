@@ -23,8 +23,7 @@ public abstract class User implements Subscribable {
         this.subscribedJournals = new ArrayList<>();
     }
 
-    public User(String id, String login, String password,
-                String name, String surname, String email) {
+    public User(String id, String login, String password, String name, String surname, String email) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -40,7 +39,6 @@ public abstract class User implements Subscribable {
     }
 
     public void logout() {
-        // TODO: log the logout action
     }
 
     @Override
@@ -59,8 +57,7 @@ public abstract class User implements Subscribable {
 
     @Override
     public void onNewPaperPublished(ResearchPaper paper) {
-        System.out.println("Notification for " + getFullName()
-                + ": New paper published - " + paper.getTitle());
+        System.out.println("Notification for " + getFullName() + ": New paper published - " + paper.getTitle());
     }
 
     public String getFullName() {
@@ -85,27 +82,19 @@ public abstract class User implements Subscribable {
         return getClass().getSimpleName() + "{id='" + id + "', name='" + getFullName() + "'}";
     }
 
-    // Getters and Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
-
     public String getLogin() { return login; }
     public void setLogin(String login) { this.login = login; }
-
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
-
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
     public String getSurname() { return surname; }
     public void setSurname(String surname) { this.surname = surname; }
-
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-
     public Language getLanguage() { return language; }
     public void setLanguage(Language language) { this.language = language; }
-
     public List<ResearchJournal> getSubscribedJournals() { return subscribedJournals; }
 }

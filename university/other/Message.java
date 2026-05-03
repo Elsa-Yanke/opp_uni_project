@@ -27,7 +27,6 @@ public class Message {
         this.isRead = true;
     }
 
-    // Getters
     public String getId() { return id; }
     public Employee getSender() { return sender; }
     public Employee getReceiver() { return receiver; }

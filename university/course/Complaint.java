@@ -22,8 +22,7 @@ public class Complaint {
         this.date = new Date();
     }
 
-    public Complaint(Teacher sender, Student target,
-                     String description, ComplaintUrgency urgency) {
+    public Complaint(Teacher sender, Student target, String description, ComplaintUrgency urgency) {
         this.sender = sender;
         this.target = target;
         this.description = description;
@@ -38,10 +37,19 @@ public class Complaint {
                 + ", urgency=" + urgency + "}";
     }
 
-    // Getters
-    public Teacher getSender() { return sender; }
-    public Student getTarget() { return target; }
-    public String getDescription() { return description; }
-    public ComplaintUrgency getUrgency() { return urgency; }
-    public Date getDate() { return date; }
+    public Teacher getSender() { 
+        return sender; 
+    }
+    public Student getTarget() { 
+        return target; 
+    }
+    public String getDescription() { 
+        return description; 
+    }
+    public ComplaintUrgency getUrgency() { 
+        return urgency; 
+    }
+    public Date getDate() { 
+        return date; 
+    }
 }

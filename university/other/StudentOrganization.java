@@ -14,13 +14,12 @@ public class StudentOrganization {
     public StudentOrganization() {
         this.members = new ArrayList<>();
     }
-
     public StudentOrganization(String id, String name, Student head) {
         this.id = id;
         this.name = name;
         this.head = head;
         this.members = new ArrayList<>();
-        members.add(head); // head is also a member
+        members.add(head);
     }
 
     public void addMember(Student student) {
@@ -30,14 +29,12 @@ public class StudentOrganization {
     }
 
     public void removeMember(Student student) {
-        if (!student.equals(head)) { // can't remove head
+        if (!student.equals(head)) { 
             members.remove(student);
         }
     }
 
     public List<Student> getMembers() { return members; }
-
-    // Getters
     public String getId() { return id; }
     public String getName() { return name; }
     public Student getHead() { return head; }

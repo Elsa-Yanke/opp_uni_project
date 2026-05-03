@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-// Decorator pattern base class
 public abstract class ResearcherDecorator implements Researcher {
 
     protected User wrappee;

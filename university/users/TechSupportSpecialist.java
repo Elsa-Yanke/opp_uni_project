@@ -14,15 +14,12 @@ public class TechSupportSpecialist extends Employee {
         this.assignedRequests = new ArrayList<>();
     }
 
-    public TechSupportSpecialist(String id, String login, String password,
-                                  String name, String surname, String email,
-                                  double salary, String department) {
+    public TechSupportSpecialist(String id, String login, String password, String name, String surname, String email, double salary, String department) {
         super(id, login, password, name, surname, email, salary, department);
         this.assignedRequests = new ArrayList<>();
     }
 
     public List<TechRequest> viewRequests(List<TechRequest> allRequests) {
-        // Mark all NEW requests as VIEWED
         for (TechRequest request : allRequests) {
             if (request.getStatus() == RequestStatus.NEW) {
                 request.updateStatus(RequestStatus.VIEWED);

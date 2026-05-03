@@ -9,9 +9,7 @@ public class Admin extends Employee {
         super();
     }
 
-    public Admin(String id, String login, String password,
-                 String name, String surname, String email,
-                 double salary, String department) {
+    public Admin(String id, String login, String password, String name, String surname, String email, double salary, String department) {
         super(id, login, password, name, surname, email, salary, department);
     }
 

@@ -17,7 +17,7 @@ public class StudentResearcher extends ResearcherDecorator {
 
     public void addDiplomaProject(ResearchPaper paper) {
         diplomaProjects.add(paper);
-        addPaper(paper); // diploma project counts as research paper too
+        addPaper(paper);
     }
 
     public List<ResearchPaper> getDiplomaProjects() {

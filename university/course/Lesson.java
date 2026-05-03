@@ -28,10 +28,20 @@ public class Lesson {
         return "Lesson{topic='" + topic + "', type=" + type + ", date=" + date + "}";
     }
 
-    // Getters
-    public String getLessonId() { return lessonId; }
-    public String getTopic() { return topic; }
-    public LessonType getType() { return type; }
-    public Teacher getTeacher() { return teacher; }
-    public Date getDate() { return date; }
+    public String getLessonId() { 
+        return lessonId; 
+    }
+    public String getTopic() { 
+        return topic; 
+    }
+    public LessonType getType() { 
+        return type; 
+    }
+    public Teacher getTeacher() { 
+        return teacher; 
+    }
+
+    public Date getDate() { 
+        return date; 
+    }
 }

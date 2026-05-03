@@ -6,8 +6,7 @@ public class MaxCreditsExceededException extends RuntimeException {
     private int attemptedToAdd;
 
     public MaxCreditsExceededException(int currentCredits, int attemptedToAdd) {
-        super("Cannot add " + attemptedToAdd + " credits. Current: "
-                + currentCredits + ", max allowed: " + MAX_CREDITS);
+        super("Cannot add " + attemptedToAdd + " credits. Current: " + currentCredits + ", max allowed: " + MAX_CREDITS);
         this.currentCredits = currentCredits;
         this.attemptedToAdd = attemptedToAdd;
     }

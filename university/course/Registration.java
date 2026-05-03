@@ -35,7 +35,6 @@ public class Registration {
                 + " in " + offering.getCourse().getName());
     }
 
-    // Getters
     public String getRegistrationId() { return registrationId; }
     public Student getStudent() { return student; }
     public CourseOffering getOffering() { return offering; }

@@ -28,7 +28,7 @@ public class News implements Comparable<News> {
         this.title = title;
         this.content = content;
         this.topic = topic;
-        this.isPinned = topic.equalsIgnoreCase("Research"); // auto-pin Research news
+        this.isPinned = topic.equalsIgnoreCase("Research");
         this.author = author;
         this.date = new Date();
         this.comments = new ArrayList<>();
@@ -49,7 +49,6 @@ public class News implements Comparable<News> {
         return other.date.compareTo(this.date);
     }
 
-    // Static factory methods for automatic announcements
     public static News createPaperAnnouncement(ResearchPaper paper, Researcher researcher) {
         return new News(
             java.util.UUID.randomUUID().toString(),
@@ -70,7 +69,6 @@ public class News implements Comparable<News> {
         );
     }
 
-    // Getters
     public String getId() { return id; }
     public String getTitle() { return title; }
     public String getContent() { return content; }

@@ -21,9 +21,7 @@ public class Teacher extends Employee {
         this.complaints = new ArrayList<>();
     }
 
-    public Teacher(String id, String login, String password,
-                   String name, String surname, String email,
-                   double salary, String department, TeacherPosition position) {
+    public Teacher(String id, String login, String password, String name, String surname, String email,  double salary, String department, TeacherPosition position) {
         super(id, login, password, name, surname, email, salary, department);
         this.position = position;
         this.rating = 0.0;
@@ -40,15 +38,13 @@ public class Teacher extends Employee {
     }
 
     public void putMark(Student student, CourseOffering offering, Mark mark) {
-        // TODO: validate that student is enrolled in this offering
         offering.addMark(student, mark);
     }
 
     public void sendComplaint(Student student, ComplaintUrgency urgency) {
         Complaint complaint = new Complaint(this, student, urgency);
         complaints.add(complaint);
-        System.out.println("Complaint sent against " + student.getFullName()
-                + " with urgency: " + urgency);
+        System.out.println("Complaint sent against " + student.getFullName() + " with urgency: " + urgency);
     }
 
     public List<Student> viewStudents() {
@@ -76,7 +72,6 @@ public class Teacher extends Employee {
         this.rating = ((this.rating * (totalRatings - 1)) + newRating) / totalRatings;
     }
 
-    // Getters and Setters
     public TeacherPosition getPosition() { return position; }
     public void setPosition(TeacherPosition position) { this.position = position; }
 

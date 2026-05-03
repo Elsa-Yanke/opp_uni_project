@@ -23,9 +23,7 @@ public class GraduateStudent extends Student implements Researcher {
         this.diplomaProjects = new ArrayList<>();
     }
 
-    public GraduateStudent(String id, String login, String password,
-                           String name, String surname, String email,
-                           String studentId, StudentDegree degree) {
+    public GraduateStudent(String id, String login, String password, String name, String surname, String email, String studentId, StudentDegree degree) {
         super(id, login, password, name, surname, email, studentId);
         this.setDegree(degree); // MASTER or PHD
         this.papers = new ArrayList<>();
@@ -34,7 +32,6 @@ public class GraduateStudent extends Student implements Researcher {
     }
 
     public void setSupervisor(Researcher researcher) {
-        // h-index must be >= 3
         if (researcher.calculateHIndex() < 3) {
             throw new LowHIndexException(researcher.calculateHIndex());
         }
@@ -43,13 +40,12 @@ public class GraduateStudent extends Student implements Researcher {
 
     public void addDiplomaProject(ResearchPaper paper) {
         diplomaProjects.add(paper);
-        addPaper(paper); // diploma project is also a research paper
+        addPaper(paper); 
     }
 
     public List<ResearchPaper> getDiplomaProjects() { return diplomaProjects; }
     public Researcher getSupervisor() { return supervisor; }
 
-    // --- Researcher interface implementation ---
     @Override
     public List<ResearchPaper> getResearchPapers() { return papers; }
 

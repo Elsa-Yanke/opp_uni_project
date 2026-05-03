@@ -27,7 +27,6 @@ public class ResearchJournal {
         this.subscribers = new ArrayList<>();
     }
 
-    // Publishes paper and notifies all subscribers — Observer pattern trigger
     public void publishPaper(ResearchPaper paper) {
         papers.add(paper);
         notifySubscribers(paper);
@@ -43,7 +42,6 @@ public class ResearchJournal {
         subscribers.remove(subscriber);
     }
 
-    // Notifies all subscribers — Observer pattern notify
     public void notifySubscribers(ResearchPaper paper) {
         for (Subscribable subscriber : subscribers) {
             subscriber.onNewPaperPublished(paper);

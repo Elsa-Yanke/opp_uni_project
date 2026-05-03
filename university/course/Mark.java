@@ -12,8 +12,7 @@ public class Mark implements Comparable<Mark> {
 
     public Mark() {}
 
-    public Mark(Student student, CourseOffering offering,
-                double firstAttestation, double secondAttestation, double finalExam) {
+    public Mark(Student student, CourseOffering offering, double firstAttestation, double secondAttestation, double finalExam) {
         this.student = student;
         this.offering = offering;
         this.firstAttestation = firstAttestation;
@@ -45,14 +44,9 @@ public class Mark implements Comparable<Mark> {
 
     @Override
     public String toString() {
-        return "Mark{first=" + firstAttestation
-                + ", second=" + secondAttestation
-                + ", final=" + finalExam
-                + ", total=" + total()
-                + ", grade=" + getLetterGrade() + "}";
+        return "Mark{first=" + firstAttestation + ", second=" + secondAttestation + ", final=" + finalExam + ", total=" + total() + ", grade=" + getLetterGrade() + "}";
     }
 
-    // Getters and Setters
     public Student getStudent() { return student; }
     public CourseOffering getOffering() { return offering; }
     public double getFirstAttestation() { return firstAttestation; }

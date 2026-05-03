@@ -25,12 +25,10 @@ public class ResearchProject {
         this.publishedPapers = new ArrayList<>();
     }
 
-    // Only Researcher can join — throws NotAResearcherException if not
     public void addParticipant(Researcher researcher) {
         participants.add(researcher);
     }
 
-    // If a plain User (non-Researcher) tries to join
     public void tryAddUser(User user) {
         if (!(user instanceof Researcher)) {
             throw new NotAResearcherException(user.getFullName());
@@ -42,7 +40,6 @@ public class ResearchProject {
         publishedPapers.add(paper);
     }
 
-    // Getters
     public String getProjectId() { return projectId; }
     public String getTopic() { return topic; }
     public List<Researcher> getParticipants() { return participants; }

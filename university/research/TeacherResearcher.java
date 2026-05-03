@@ -11,7 +11,6 @@ public class TeacherResearcher extends ResearcherDecorator {
         this.wrappee = wrappee;
     }
 
-    // Can be supervisor only if h-index >= 3
     public boolean canBeSupervisor() {
         return calculateHIndex() >= 3;
     }

@@ -15,9 +15,7 @@ public abstract class Employee extends User {
         this.inbox = new ArrayList<>();
     }
 
-    public Employee(String id, String login, String password,
-                    String name, String surname, String email,
-                    double salary, String department) {
+    public Employee(String id, String login, String password, String name, String surname, String email, double salary, String department) {
         super(id, login, password, name, surname, email);
         this.salary = salary;
         this.department = department;
@@ -38,7 +36,6 @@ public abstract class Employee extends User {
         return inbox;
     }
 
-    // Getters and Setters
     public double getSalary() { return salary; }
     public void setSalary(double salary) { this.salary = salary; }
 

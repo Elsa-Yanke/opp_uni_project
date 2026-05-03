@@ -27,8 +27,7 @@ public class CourseOffering {
         this.markBook = new HashMap<>();
     }
 
-    public CourseOffering(String offeringId, Course course, Semester semester,
-                          int maxStudents, String major, int yearOfStudy) {
+    public CourseOffering(String offeringId, Course course, Semester semester, int maxStudents, String major, int yearOfStudy) {
         this.offeringId = offeringId;
         this.course = course;
         this.semester = semester;
@@ -43,7 +42,8 @@ public class CourseOffering {
     public void addStudent(Student student) {
         if (!isFull()) {
             enrolledStudents.add(student);
-        } else {
+        } 
+        else {
             System.out.println("Course offering is full.");
         }
     }
@@ -75,7 +75,6 @@ public class CourseOffering {
         return markBook.get(student);
     }
 
-    // Getters and Setters
     public String getOfferingId() { return offeringId; }
     public Course getCourse() { return course; }
     public Semester getSemester() { return semester; }
